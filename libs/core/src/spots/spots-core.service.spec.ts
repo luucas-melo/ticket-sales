@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { SpotsService } from './spots-core.service';
 import { PrismaService } from '../prisma/prisma.service';
-import { prismaMock } from 'fixtures/events';
+import { prismaMock } from '@app/core/fixtures/events-fixtures';
 
 describe('SpotsService', () => {
   let service: SpotsService;

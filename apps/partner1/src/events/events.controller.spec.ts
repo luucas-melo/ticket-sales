@@ -2,7 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EventsController } from './events.controller';
 import { EventsService } from '@app/core';
 import { PrismaService } from '@app/core/prisma/prisma.service';
-import { prismaMock } from 'fixtures/events';
+import { prismaMock } from '@app/core/fixtures/events-fixtures';
+import { AuthGuard } from '@app/core/auth/auth.guard';
 
 describe('EventsController', () => {
   let controller: EventsController;
@@ -14,7 +15,10 @@ describe('EventsController', () => {
         EventsService,
         { provide: PrismaService, useValue: prismaMock },
       ],
-    }).compile();
+    })
+      .overrideGuard(AuthGuard)
+      .useValue({ canActivate: jest.fn(() => true) })
+      .compile();
 
     controller = module.get<EventsController>(EventsController);
   });

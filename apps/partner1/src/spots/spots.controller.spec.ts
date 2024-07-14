@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { SpotsController } from './spots.controller';
 import { SpotsService } from '@app/core';
 import { PrismaService } from '@app/core/prisma/prisma.service';
-import { prismaMock } from 'fixtures/events';
+import { prismaMock } from '@app/core/fixtures/events-fixtures';
 
 describe('SpotsController', () => {
   let controller: SpotsController;

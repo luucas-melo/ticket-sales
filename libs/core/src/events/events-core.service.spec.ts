@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { EventsService } from './events-core.service';
 import { PrismaService } from '../prisma/prisma.service';
-import { fakeEvents, prismaMock } from 'fixtures/events';
+import { fakeEvents, prismaMock } from '../fixtures/events-fixtures';
 
 describe('EventsService', () => {
   let service: EventsService;
